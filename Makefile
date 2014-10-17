@@ -7,7 +7,7 @@ all: build_images
 
 build_images: copy_files build_bts build_sip
 
-copy_files: scripts asterisk-config
+copy_files: scripts asterisk
 
 scripts:
 	cd ${SCRIPTS_DIR}; \
@@ -18,7 +18,7 @@ scripts:
 	tar -C ${SIP_DIR}/scripts -xf scripts.tar
 	rm -f scripts.tar
 
-asterisk-config:
+asterisk:
 	cd ${ASTERISK_CONFIG_DIR}; \
 		git archive --format tar -o ../asterisk-config.tar master 
 	rm -rf ${SIP_DIR}/asterisk-config
