@@ -1,5 +1,7 @@
-debs/
 openbts/scripts/
 sipserver/scripts/
+openbts/debs/
+sipserver/debs/
+sipserver/asterisk-config/
 scripts.tar
 asterisk-config.tar

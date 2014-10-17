@@ -2,12 +2,13 @@ SCRIPTS_DIR = container-scripts
 ASTERISK_CONFIG_DIR = asterisk-config
 BTS_DIR = openbts
 SIP_DIR = sipserver
+DEBS_DIR = ~/debs
 
 all: build_images
 
 build_images: copy_files build_bts build_sip
 
-copy_files: scripts asterisk
+copy_files: scripts asterisk debs
 
 scripts:
 	cd ${SCRIPTS_DIR}; \
@@ -25,6 +26,11 @@ asterisk:
 	mkdir ${SIP_DIR}/asterisk-config
 	tar -C ${SIP_DIR}/asterisk-config -xf asterisk-config.tar
 	rm -f asterisk-config.tar
+
+debs:
+	rm -rf ${BTS_DIR}/debs ${SIP_DIR}/debs
+	cp -r ${DEBS_DIR} ${BTS_DIR}/debs
+	cp -r ${DEBS_DIR} ${SIP_DIR}/debs
 
 build_bts:
 	sudo docker build -t openbts:init ${BTS_DIR}
