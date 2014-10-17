@@ -1,3 +1,6 @@
 [submodule "container-scripts"]
 	path = container-scripts
 	url = https://github.com/NiulabVBS/container-scripts.git
+[submodule "asterisk-config"]
+	path = asterisk-config
+	url = https://github.com/NiulabVBS/asterisk-config.git
